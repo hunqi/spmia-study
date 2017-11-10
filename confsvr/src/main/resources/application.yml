@@ -1,0 +1,53 @@
+#
+#   This is the core configuration for a configuration service.  I have two examples here:
+#
+#       -  A configuration service which completelty loads the configuration for the services
+#          from the local file server of the config service.  This should only be used for
+#          demonstration purposes or for a small application with a limited number of services.
+#
+#       -  A configuraton service that uses a git-based repository to read the files from
+#
+
+####################################
+#server:
+#  port: 8888
+#spring:
+#  cloud:
+#    config:
+#      server:
+#        encrypt.enabled: false
+#        git:
+#          uri: https://github.com/carnellj/config-repo/
+#          searchPaths: licensingservice,organizationservice
+#          username: native-cloud-apps
+#          password: 0ffended
+          
+####
+#Classpath and file-based solution
+####
+
+server:
+   port: 8888
+   
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/  
+
+spring:
+  profiles:
+    active: native
+  cloud:
+     config:
+       server:
+           encrypt:
+              enabled: false
+           native:
+#              searchLocations: file://D:/config-repo/organizationservice, file://D:/config-repo/licensingservice
+              searchLocations: classpath:config/,classpath:config/licensingservice, 
+                   classpath:config/organizationservice, classpath:config/zuulservice
+          
