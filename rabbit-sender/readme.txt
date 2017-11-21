@@ -1,0 +1,1 @@
+sender tutorial for spring-boot integrates rabbitmq

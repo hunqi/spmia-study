@@ -1,0 +1,1 @@
+receiver tutorial for spring-boot integrates rabbitmq
