@@ -50,4 +50,10 @@ public class OrganizationChangeModel implements Serializable {
 		this.correlationId = correlationId;
 	}
 
+	@Override
+	public String toString() {
+		return "OrganizationChangeModel [type=" + type + ", action=" + action + ", organizationId=" + organizationId
+				+ ", correlationId=" + correlationId + "]";
+	}
+	
 }

@@ -25,7 +25,7 @@ public class SimpleSource {
                 orgId,
                 UserContext.getCorrelationId());
         
-        template.convertAndSend("org-queue", change);
+        template.convertAndSend("org-queue", change.toString());
 	}
 	
 }

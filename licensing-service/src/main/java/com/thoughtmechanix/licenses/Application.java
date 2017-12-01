@@ -15,7 +15,6 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-import com.thoughtmechanix.licenses.model.OrganizationChangeModel;
 import com.thoughtmechanix.licenses.utils.UserContextInterceptor;
 
 @SpringBootApplication
@@ -44,7 +43,7 @@ public class Application {
 	}
 	
 	@RabbitListener(queues="org-queue")
-	public void loggerSink(OrganizationChangeModel orgChange){
+	public void listenOrgQueue(String orgChange){
 		logger.debug("Received an event of organization[{}]" , orgChange);
 	}
 
