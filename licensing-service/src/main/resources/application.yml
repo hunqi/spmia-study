@@ -27,4 +27,7 @@ cloud:
    binder:
     zkNodes: localhost
     brokers: localhost
- 
+
+spring:
+ zipkin:
+  baseUrl: http://localhost:9411

@@ -1,0 +1,39 @@
+<configuration scan="true" scanPeriod="30 seconds">
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoders are assigned the type
+			 ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+	</appender>
+	
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+		<file>D:/ray.sun/git/spmia-study/logs/licensingservice/licensingservice.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>D:/ray.sun/git/spmia-study/logs/licensingservice/licensingservice.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+	</appender>
+    <logger name="${package}" level="INFO"/>
+	<logger name="com.opensymphony" level="ERROR"/>
+    <logger name="org.apache.struts2" level="ERROR"/>
+    <logger name="freemarker" level="OFF"/>
+	<logger name="com.google.inject" level="ERROR"/>
+	<logger name="org.apache.ibatis" level="ERROR"/>
+	<logger name="com.mchange.v2" level="ERROR"/>
+    <logger name="org.quartz" level="ERROR"/>
+	<logger name="org.apache.common" level="ERROR"/>
+    <logger name="org.mybatis" level="ERROR"/>
+    <logger name="org.hibernate" level="ERROR"/>
+    <logger name="org.apache.shiro" level="ERROR"/>
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>

@@ -10,6 +10,13 @@
 #          zkNodes: localhost
 #          brokers: localhost
 
+spring:
+  zipkin:
+    baseUrl: http://localhost:9411
+  sleuth:
+    sampler:
+      percentage: 1.0
+
 #Setting the logging levels for the service
 logging:
   level:
@@ -25,6 +32,7 @@ eureka:
     fetchRegistry: true
     serviceUrl:
         defaultZone: http://localhost:8761/eureka/
+
 #security:
 # oauth2:
 #  resource:
